@@ -1,0 +1,15 @@
+version: 2.1
+jobs:
+  qa_ops_smoke:
+    docker:
+      - image: cimg/base:stable
+    resource_class: small
+    steps:
+      - checkout
+      - run:
+          name: QA Ops smoke test
+          command: echo 'qa_ops_pipeline_ok'
+workflows:
+  qa_ops_workflow:
+    jobs:
+      - qa_ops_smoke
